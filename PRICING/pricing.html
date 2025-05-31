@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Pricing Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+    }
+    .container {
+      max-width: 500px;
+      background: #fff;
+      margin: auto;
+      padding: 20px 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .output {
+      margin-top: 25px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-left: 5px solid #007bff;
+      border-radius: 6px;
+    }
+    .output p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Product Pricing Calculator</h2>
+    <label>Product Name:</label>
+    <input type="text" id="productName" placeholder="e.g. Wireless Mouse">
+
+    <label>Base Price (₹):</label>
+    <input type="number" id="basePrice" placeholder="e.g. 1000">
+
+    <label>Discount (%):</label>
+    <input type="number" id="discount" placeholder="e.g. 10">
+
+    <label>Tax Rate (%):</label>
+    <input type="number" id="taxRate" placeholder="e.g. 18" value="18">
+
+    <button onclick="calculatePrice()">Calculate Final Price</button>
+
+    <div class="output" id="result" style="display:none;"></div>
+  </div>
+
+  <script>
+    function calculatePrice() {
+      const name = document.getElementById("productName").value;
+      const base = parseFloat(document.getElementById("basePrice").value);
+      const discount = parseFloat(document.getElementById("discount").value) || 0;
+      const tax = parseFloat(document.getElementById("taxRate").value) || 0;
+
+      if (!name || isNaN(base)) {
+        alert("Please enter valid product name and base price.");
+        return;
+      }
+
+      const discountAmt = (base * discount) / 100;
+      const priceAfterDiscount = base - discountAmt;
+      const taxAmt = (priceAfterDiscount * tax) / 100;
+      const finalPrice = priceAfterDiscount + taxAmt;
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = `
+        <p><strong>Product:</strong> ${name}</p>
+        <p><strong>Base Price:</strong> ₹${base.toFixed(2)}</p>
+        <p><strong>Discount:</strong> ${discount}% (-₹${discountAmt.toFixed(2)})</p>
+        <p><strong>Price After Discount:</strong> ₹${priceAfterDiscount.toFixed(2)}</p>
+        <p><strong>Tax:</strong> ${tax}% (+₹${taxAmt.toFixed(2)})</p>
+        <p><strong>Final Price:</strong> ₹${finalPrice.toFixed(2)}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

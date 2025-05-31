@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  margin: 0;
+  background: #040304;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+
+}
+        .main-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+      <video autoplay  loop playsinline class="main-video"> 
+    <source src="/boat.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+    </div>
+</body>
+</html>

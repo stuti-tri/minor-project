@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f7f1ec;
+      color: #333;
+    }
+    .cart-container {
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    .cart-items, .cart-summary {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      flex: 1;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+    .free-samples {
+      margin-top: 2rem;
+    }
+    .sample {
+      margin-bottom: 1rem;
+    }
+    .sample button {
+      background: #d8bfae;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .cart-summary {
+      background: #e6d3c5;
+    }
+    .total, .checkout {
+      margin-top: 2rem;
+    }
+    .checkout button {
+      width: 100%;
+      padding: 1rem;
+      background: #000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="cart-container">
+  <!-- Cart Items -->
+  <div class="cart-items">
+    <h2>Your Cart</h2>
+    <div class="cart-item">
+      <div>
+        <strong>Sweet Ash</strong><br>
+        <small>50 mL fragrance</small>
+      </div>
+      <div>$65</div>
+    </div>
+
+    <!-- Free Samples -->
+    <div class="free-samples">
+      <h3>You’re eligible for a free sample</h3>
+      <div class="sample">
+        <strong>Peel the way</strong><br>
+        <small>1 mL tester of our latest release</small><br>
+        <button onclick="selectSample('Peel the way')">Select</button>
+      </div>
+      <div class="sample">
+        <strong>Sweet Ash Everything Wash</strong><br>
+        <small>20 mL sample body wash</small><br>
+        <button onclick="selectSample('Sweet Ash Wash')">Select</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Summary -->
+  <div class="cart-summary">
+    <h3>You're unlocked free shipping!</h3>
+    <div class="total">
+      <strong>Subtotal:</strong> $65
+    </div>
+    <div class="checkout">
+      <button onclick="checkout()">Check Me Out</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Snif Clone | About | Store Locator | Contact
+</footer>
+
+<script>
+  function selectSample(sampleName) {
+    alert("You selected: " + sampleName);
+  }
+
+  function checkout() {
+    alert("Redirecting to payment...");
+  }
+</script>
+
+</body>
+</html>
